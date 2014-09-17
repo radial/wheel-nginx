@@ -1,0 +1,22 @@
+logs:
+    image: "radial/axle-base:latest"
+    volumes:
+        - /log
+hub:
+    image: "radial/hub-base:latest"
+    volumes_from:
+        - logs
+    volumes:
+        - /config
+        - /data
+        - /run
+    environment:
+        WHEEL_REPO_NGINX: "https://github.com/radial/wheel-nginx.git"
+nginx:
+    image: "radial/nginx:latest"
+    volumes_from:
+        - hub
+    ports:
+        - "8080:80"
+        - "4430:443"
+        - "22229:22"
