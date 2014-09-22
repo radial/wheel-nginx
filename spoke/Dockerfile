@@ -13,7 +13,6 @@ RUN             apt-get -q update && apt-get -qyV install \
                     nginx &&\
                 apt-get clean &&\
                 rm -rf /var/lib/apt/lists/*
-RUN             env --unset=DEBIAN_FRONTEND
 
 # Generate DH parameter
 RUN             mkdir -p /etc/nginx/ssl &&\
