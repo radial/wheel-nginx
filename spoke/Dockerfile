@@ -11,7 +11,8 @@ RUN             echo "deb http://nginx.org/packages/ubuntu/ trusty nginx" > /etc
 RUN             apt-get -q update && apt-get -qyV install \
                     curl libcurl3 bzip2 wget openssl ssl-cert sharutils libmcrypt4\
                     nginx &&\
-                apt-get clean
+                apt-get clean &&\
+                rm -rf /var/lib/apt/lists/*
 RUN             env --unset=DEBIAN_FRONTEND
 
 # Generate DH parameter
