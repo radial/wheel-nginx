@@ -1,8 +1,8 @@
 #!/bin/bash
 set -e
 
+# Tunable settings
 SSL_DIR=${SSL_DIR:-/etc/ssl/nginx}
-ERR_LOG=${ERR_LOG:-"/log/$HOSTNAME/nginx_stderr.log"}
 WWW_DIR=${WWW_DIR:-/data/www}
 CSR_C=${CSR_C:-US}
 CSR_ST=${CSR_ST:-CA}
@@ -11,6 +11,9 @@ CSR_O=${CSR_O:-myorg}
 CSR_OU=${CSR_OU:-department}
 CSR_CN=${CSR_CN:-myorg.com}
 ENABLE=${ENABLE:-static_serv}
+
+# Misc settings
+ERR_LOG=/log/$HOSTNAME/nginx_stderr.log
 
 
 restart_message() {
