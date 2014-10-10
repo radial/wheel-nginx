@@ -9,6 +9,29 @@ but undocumented at the moment.
 
 [nginx]: http://nginx.org/
 
+## Tunables
+
+Tunable environment variables; modify at runtime.
+
+**SSL_DIR**: Location to store Certificate Signing Request
+
+**WWW_DIR**: File path of website root.
+
+**CSR_C**: CSR "Country" subject
+
+**CSR_ST**: CSR "State" subject
+
+**CSR_L**: CSR "Location" subject
+
+**CSR_O**: CSR "Organization" subject
+
+**CSR_OU**: CSR "Organizational Unit" subject
+
+**CSR_CN**: CSR "Common Name" subject
+
+**ENABLE**: Website(s) to enable when run. All sites are disabled by default.
+Separate with spaces.
+
 ## Radial
 
 [Radial][radial] is a [Docker][docker] container topology strategy that
