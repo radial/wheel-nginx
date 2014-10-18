@@ -35,6 +35,7 @@ enable_sites() {
         site=$(get_site $i)
         if [ -f /config/nginx/sites-available/${site}.conf ]; then
             ln -s /config/nginx/sites-available/${site}.conf /config/nginx/sites-enabled/${site}.conf
+            echo "Enabled site \"${site}\"" | tee -a $ERR_LOG
         else
             echo -e "Error: Can't enable site \"$site\". Not found." | tee -a $ERR_LOG
             exit 1
@@ -52,7 +53,7 @@ mkdir -p /config/nginx/sites-enabled
 # initialize folders if needed
 if [ ! "`ls -A $SSL_DIR`" ] ; then
     openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout $SSL_DIR/nginx.key -out $SSL_DIR/nginx.crt -subj "/C=${CSR_C}/ST=${CSR_ST}/L=${CSR_L}/O=${CSR_O}/OU=${CSR_OU}/CN=${CSR_CN}"
-    echo "Certificate generated on $(date)."
+    echo "Certificate generated on $(date)." | tee -a $ERR_LOG
 else
     restart_message
 fi
