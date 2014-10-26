@@ -11,18 +11,19 @@ but undocumented at the moment.
 
 ## Tunables
 
-Tunable environment variables; modify at runtime.
+Tunable environment variables; modify at runtime. Italics are defaults.
 
-  - **SSL_DIR**: Location to store Certificate Signing Request
-  - **WWW_DIR**: File path of website root.
-  - **CSR_C**: CSR "Country" subject
-  - **CSR_ST**: CSR "State" subject
-  - **CSR_L**: CSR "Location" subject
-  - **CSR_O**: CSR "Organization" subject
-  - **CSR_OU**: CSR "Organizational Unit" subject
-  - **CSR_CN**: CSR "Common Name" subject
-  - **ENABLE**: Website(s) to enable when run. Static serving on / by default.
-    Set as single string with sites separated with spaces.
+  - **SSL_DIR**: {_"/etc/ssl/nginx"_} Location to store Certificate Signing Request
+  - **WWW_DIR**: {_"/data/www"_} File path of website root.
+  - **CSR_C**: {_"US"_} CSR "Country" subject
+  - **CSR_ST**: {_"CA"_} CSR "State" subject
+  - **CSR_L**: {_"Los Angeles"_} CSR "Location" subject
+  - **CSR_O**: {_"myorg"_} CSR "Organization" subject
+  - **CSR_OU**: {_"department"_} CSR "Organizational Unit" subject
+  - **CSR_CN**: {_"myorg.com"_} CSR "Common Name" subject
+  - **ENABLE**: {_"static_serv"_} Website(s) to enable when run. Static serving on `$WWW_DIR` by default.
+    Set as single string with sites separated with spaces. ("site_one
+    site_two")
 
 ## Radial
 
